@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "mail:home"
-ACCOUNT_LOGOUT_URL = "mail:mail"
+ACCOUNT_LOGOUT_URL = "/accounts/login/"
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
