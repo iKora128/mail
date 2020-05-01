@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from accounts.models import CustomUser
 
 class MailModel(models.Model):
     class Meta:
@@ -11,7 +10,7 @@ class MailModel(models.Model):
         return self.title
 
     author = models.ForeignKey(
-        User,
+        CustomUser,
         verbose_name="お名前",
         null=False,
         blank=False,

@@ -6,6 +6,6 @@ class BaseView(TemplateView):
 
 
 class MailView(TemplateView):
-    template_name = "base.html"
+    template_name = "mail.html"
 
 

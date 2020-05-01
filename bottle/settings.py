@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mail.apps.MailConfig',
     "accounts.apps.AccountsConfig",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    'allauth.socialaccount.providers.twitter',
 ]
 
 MIDDLEWARE = [
@@ -120,12 +125,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'static'),
  ]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "mail:home"
+ACCOUNT_LOGOUT_URL = "mail:mail"
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
