@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import CustomUser
 
+
 class MailModel(models.Model):
     class Meta:
         verbose_name_plural = "メール"
@@ -29,6 +30,14 @@ class MailModel(models.Model):
         max_length=200,
         blank=False,
         null=False
+    )
+
+    send_to = models.ForeignKey(
+        CustomUser,
+        verbose_name="送信相手",
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE
     )
 
     like_counter = models.IntegerField(
