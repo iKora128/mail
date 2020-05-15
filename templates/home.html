@@ -43,17 +43,23 @@
   </div>
 </section>
 
+{% if not request.user.is_authenticated %}
 <div>
 <a href="{%url 'account_login'%}">ログイン画面へ</a>
 </div>
 
 <div>
+<a href="{% url 'twitter_login' %}">Twitterでログイン</a>
+</div>
+{% endif %}
+
+
+
+<div>
 <a href="{%url 'account_logout'%}">ログアウト</a>
 </div>
 
-<div>
-<a href="{% url 'twitter_login' %}">Twitterでログイン</a>
-</div>
+
 
 
 

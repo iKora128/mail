@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
+from django.contrib.auth.models import AbstractUser
 
 
 class MailModel(models.Model):
@@ -15,7 +16,8 @@ class MailModel(models.Model):
         verbose_name="お名前",
         null=False,
         blank=False,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="author_name"
     )
 
     title = models.CharField(
@@ -37,7 +39,8 @@ class MailModel(models.Model):
         verbose_name="送信相手",
         null=False,
         blank=False,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="receiver_name"
     )
 
     like_counter = models.IntegerField(

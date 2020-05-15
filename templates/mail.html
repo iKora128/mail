@@ -7,5 +7,22 @@
 <body>
 <h1>This is mail page!!</h1>
 
+
+<h2>受信メッセージ</h2>
+ {% for content in mails_list %}
+     <h3>title: {{ content.title }}</h3>
+     <p>text: {{ content.text }}</p>
+     <p>likes: {{ content.like_counter }}</p>
+     <p><a href="{% url 'mail:detail' content.pk %}">詳細</a></p>
+ {% endfor %}
+
+<div>
+<a href="{%url 'account_logout'%}">ログアウト</a>
+</div>
+
+
+
+
+
 </body>
 </html>
